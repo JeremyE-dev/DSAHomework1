@@ -29,8 +29,21 @@ namespace DSAHomework1
             int[] newArray = new int[array.Length + 1];
 
             // copy elements up to insert point from original array to new array
+            for (int i = 0; i < index; i++)
+            {
+                newArray[i] = array[i];
+            }
 
-            return null;
+            // insert value at index
+            newArray[index] = value;
+
+            // copy remaining elements from original array to new array
+            for (int i = index; i < array.Length; i++)
+            {
+                newArray[i + 1] = array[i];
+            }
+
+            return newArray;
 
         }
     }
