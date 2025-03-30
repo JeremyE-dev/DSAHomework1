@@ -17,7 +17,7 @@ namespace DSAHomework1
             int INSERTS_PER_READING = 1000;
 
             // start with an array containing one element haviong the value of 0
-            int[] array = new int[] { 0 };
+            int[] array = new int[0];
 
             //initialize random number generators
             System.Random randomIndex = new System.Random();
@@ -72,7 +72,15 @@ namespace DSAHomework1
                         int index = randomIndex.Next(0, array.Length);
                         int value = randomValue.Next();
 
-                        array = Homework1.Insert(array, index, value);
+                        try
+                        {
+                            array = Homework1.Insert(array, index, value);
+                        } 
+                        catch (Exception e)
+                        {
+                            Console.WriteLine($"Unexpected Error: {e.Message}");
+                        }
+
                     }
             
                     sw.Stop();
